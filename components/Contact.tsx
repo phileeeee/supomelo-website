@@ -174,7 +174,7 @@ export default function Contact() {
                             }}
                             className="flex items-center"
                           >
-                            <img src="/plus.png" alt="" className="w-4 h-4" />
+                            <img src="/supomelo-website/plus.png" alt="" className="w-4 h-4" />
                           </motion.span>
                         )}
                       </AnimatePresence>

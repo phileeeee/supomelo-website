@@ -115,7 +115,7 @@ export default function Navbar() {
             >
               supomelo
               <img
-                src="/leaf.png"
+                src="/supomelo-website/leaf.png"
                 alt=""
                 className="absolute -top-1.5 -right-3 w-5 h-5 object-contain pointer-events-none"
               />
@@ -156,7 +156,7 @@ export default function Navbar() {
                 Let&apos;s chat
                 <span className="flex items-center justify-center w-7 h-7 bg-accent rounded-full">
                   <img
-                    src="/star6.png"
+                    src="/supomelo-website/star6.png"
                     alt=""
                     className="w-3 h-3 transition-transform duration-500 ease-out group-hover:rotate-180"
                   />
@@ -193,7 +193,7 @@ export default function Navbar() {
               <a href="#" className="relative text-xl font-bold text-text-primary lowercase">
                 supomelo
                 <img
-                  src="/leaf.png"
+                  src="/supomelo-website/leaf.png"
                   alt=""
                   className="absolute -top-1.5 -right-3 w-5 h-5 object-contain pointer-events-none"
                 />
@@ -270,7 +270,7 @@ export default function Navbar() {
                   Let&apos;s chat
                   <span className="flex items-center justify-center w-10 h-10 bg-accent rounded-full">
                     <img
-                      src="/star6.png"
+                      src="/supomelo-website/star6.png"
                       alt=""
                       className="w-4 h-4 transition-transform duration-500 ease-out group-hover:rotate-180"
                     />
