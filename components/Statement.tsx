@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const journeyStages = [
   { stage: 'Seed', description: 'Finding product-market fit' },
@@ -9,18 +10,6 @@ const journeyStages = [
 ];
 
 const clientTypes = [
-  {
-    id: 'startups',
-    title: 'Startups',
-    subtitle: 'Raised $2-20m',
-    description: 'You need product managers & product designers to supercharge iterating as quickly as possible to get to product market fit.',
-    offerings: [
-      { title: 'Mind meld', desc: 'Structured onboarding to understand your product, industry, and users.' },
-      { title: 'Weekly jam', desc: 'Weekly sessions to go through design feedback and brief new projects.' },
-      { title: 'Brainstorming', desc: 'Regular Slack huddles and ad-hoc calls to get the context we need.' },
-      { title: 'Rapid prototypes', desc: 'Validate product decisions with customers before building.' },
-    ],
-  },
   {
     id: 'scaleups',
     title: 'Scale-ups',
@@ -33,9 +22,23 @@ const clientTypes = [
       { title: 'User research', desc: 'Deep user interviews and testing to inform product direction.' },
     ],
   },
+  {
+    id: 'startups',
+    title: 'Startups',
+    subtitle: 'Raised $2-20m',
+    description: 'You need product managers & product designers to supercharge iterating as quickly as possible to get to product market fit.',
+    offerings: [
+      { title: 'Mind meld', desc: 'Structured onboarding to understand your product, industry, and users.' },
+      { title: 'Weekly jam', desc: 'Weekly sessions to go through design feedback and brief new projects.' },
+      { title: 'Brainstorming', desc: 'Regular Slack huddles and ad-hoc calls to get the context we need.' },
+      { title: 'Rapid prototypes', desc: 'Validate product decisions with customers before building.' },
+    ],
+  },
 ];
 
 export default function Statement() {
+  const [activeTab, setActiveTab] = useState(0);
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -182,44 +185,69 @@ export default function Statement() {
 
       </div>
 
-      {/* Client Type Accordion - Accent Background */}
+      {/* Client Type Toggle - Accent Background */}
       <div className="bg-accent mt-20 py-16 lg:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.5 }}
-            className="text-sm font-medium text-bg-dark/60 uppercase tracking-wide mb-6"
-          >
-            What you get
-          </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {clientTypes.map((client) => (
-              <motion.div
-                key={client.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.5 }}
-                className="bg-bg-warm border-2 border-bg-dark/10 rounded-2xl overflow-hidden p-6"
-              >
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-text-primary">{client.title}</h3>
-                  <p className="text-text-muted">{client.subtitle}</p>
-                </div>
-                <p className="text-text-primary mb-6">{client.description}</p>
-                <div className="grid grid-cols-1 gap-3">
-                  {client.offerings.map((offering, index) => (
-                    <div key={index} className="bg-border-light rounded-xl p-4">
-                      <h4 className="font-semibold text-text-primary mb-1">{offering.title}</h4>
-                      <p className="text-sm text-text-muted">{offering.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.5 }}
+              className="text-sm font-medium text-bg-dark/60 uppercase tracking-wide"
+            >
+              What you get
+            </motion.p>
+
+            {/* Toggle Switch */}
+            <div className="inline-flex bg-bg-dark/10 rounded-full p-1">
+              {clientTypes.map((client, index) => (
+                <button
+                  key={client.id}
+                  onClick={() => setActiveTab(index)}
+                  className={`relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 cursor-pointer ${
+                    activeTab === index
+                      ? 'bg-bg-warm text-text-primary shadow-sm'
+                      : 'text-bg-dark/70 hover:text-bg-dark'
+                  }`}
+                >
+                  {client.title}
+                </button>
+              ))}
+            </div>
           </div>
+
+          {/* Content */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="bg-bg-warm border-2 border-bg-dark/10 rounded-2xl overflow-hidden p-6 md:p-8"
+            >
+              <div className="mb-6">
+                <h3 className="text-3xl font-bold text-text-primary">{clientTypes[activeTab].title}</h3>
+                <p className="text-text-muted">{clientTypes[activeTab].subtitle}</p>
+              </div>
+              <p className="text-text-primary text-lg mb-8 max-w-2xl">{clientTypes[activeTab].description}</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {clientTypes[activeTab].offerings.map((offering, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="bg-border-light rounded-xl p-4"
+                  >
+                    <h4 className="font-semibold text-text-primary mb-1">{offering.title}</h4>
+                    <p className="text-sm text-text-muted">{offering.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
