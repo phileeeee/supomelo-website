@@ -85,8 +85,8 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
         >
           <ChatButton href="#contact" />
-          <span className="text-sm text-text-muted flex items-center gap-2">
-            <span className="text-accent">✦</span>
+          <span className="text-base text-text-muted flex items-center gap-2">
+            <span className="text-accent text-lg">✦</span>
             1 spot left in March
           </span>
         </motion.div>
