@@ -87,7 +87,7 @@ export default function Hero() {
           <ChatButton href="#contact" />
           <span className="text-base text-text-muted flex items-center gap-2">
             <span className="text-accent text-lg">✦</span>
-            1 spot left in March
+            1 spot left in April
           </span>
         </motion.div>
 
