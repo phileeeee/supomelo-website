@@ -41,7 +41,19 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      // TODO: Integrate with form backend (Formspree, Resend, etc.)
+      const subject = `New enquiry from ${formData.name} at ${formData.company}`;
+      const body = `Hi Supomelo,
+
+My name is ${formData.name} from ${formData.company}.
+
+I want to chat about designs for my: ${formData.projectTypes.join(', ')}
+
+You can reach me at: ${formData.email}
+
+Looking forward to hearing from you!`;
+
+      const mailtoLink = `mailto:supomelo.studio@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
       setIsSubmitted(true);
     }
   };
