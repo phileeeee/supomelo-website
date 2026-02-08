@@ -158,7 +158,7 @@ export default function Navbar() {
                   <img
                     src="/supomelo-website/s-logo.png"
                     alt=""
-                    className="w-3 h-3 transition-transform duration-500 ease-out group-hover:rotate-180"
+                    className="w-5 h-5 transition-transform duration-500 ease-out group-hover:rotate-180"
                   />
                 </span>
               </a>
