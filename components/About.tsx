@@ -18,7 +18,7 @@ export default function About() {
   const stats = [
     { number: 16, suffix: '+', label: 'years of design experience' },
     { number: 100, suffix: '%', label: 'embedded in your workflow' },
-    { prefix: '<', number: 2, label: 'weeks to first designs' },
+    { number: 24, suffix: 'hr', label: 'response time' },
   ];
 
   return (
