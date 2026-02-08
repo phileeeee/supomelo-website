@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import ChatButton from './ui/ChatButton';
-import LogoTicker from './LogoTicker';
+// import LogoTicker from './LogoTicker';
 
 export default function Hero() {
   const line1Words = ['From', 'seed', 'to', 'scale.'];
@@ -91,7 +91,7 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Logo Ticker */}
+        {/* Logo Ticker - hidden until we have client logos
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -103,6 +103,7 @@ export default function Hero() {
           </p>
           <LogoTicker />
         </motion.div>
+        */}
       </div>
     </section>
   );
