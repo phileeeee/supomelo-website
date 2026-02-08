@@ -188,36 +188,17 @@ export default function Statement() {
       {/* Client Type Toggle - Accent Background */}
       <div className="bg-accent mt-20 py-16 lg:py-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.5 }}
-              className="text-sm font-medium text-bg-dark/60 uppercase tracking-wide"
-            >
-              What you get
-            </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5 }}
+            className="text-sm font-medium text-bg-dark/60 uppercase tracking-wide mb-6"
+          >
+            What you get
+          </motion.p>
 
-            {/* Toggle Switch */}
-            <div className="inline-flex bg-bg-dark/10 rounded-full p-1">
-              {clientTypes.map((client, index) => (
-                <button
-                  key={client.id}
-                  onClick={() => setActiveTab(index)}
-                  className={`relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 cursor-pointer ${
-                    activeTab === index
-                      ? 'bg-bg-warm text-text-primary shadow-sm'
-                      : 'text-bg-dark/70 hover:text-bg-dark'
-                  }`}
-                >
-                  {client.title}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Content */}
+          {/* Content Card */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -225,24 +206,48 @@ export default function Statement() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="bg-bg-warm border-2 border-bg-dark/10 rounded-2xl overflow-hidden p-6 md:p-8"
+              className="bg-bg-warm rounded-2xl overflow-hidden p-6 md:p-10"
             >
-              <div className="mb-6">
-                <h3 className="text-3xl font-bold text-text-primary">{clientTypes[activeTab].title}</h3>
-                <p className="text-text-muted">{clientTypes[activeTab].subtitle}</p>
+              {/* Header with Title and Toggle */}
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
+                <div>
+                  <h3 className="text-3xl md:text-4xl font-bold text-text-primary">{clientTypes[activeTab].title}</h3>
+                  <p className="text-text-muted mt-1">{clientTypes[activeTab].subtitle}</p>
+                </div>
+
+                {/* Toggle Switch */}
+                <div className="inline-flex bg-border-light rounded-full p-1 shrink-0">
+                  {clientTypes.map((client, index) => (
+                    <button
+                      key={client.id}
+                      onClick={() => setActiveTab(index)}
+                      className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 cursor-pointer ${
+                        activeTab === index
+                          ? 'bg-bg-dark text-text-light'
+                          : 'text-text-muted hover:text-text-primary'
+                      }`}
+                    >
+                      {client.title}
+                    </button>
+                  ))}
+                </div>
               </div>
-              <p className="text-text-primary text-lg mb-8 max-w-2xl">{clientTypes[activeTab].description}</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              {/* Description */}
+              <p className="text-text-primary text-lg mb-10 max-w-2xl">{clientTypes[activeTab].description}</p>
+
+              {/* Offerings List */}
+              <div className="border-t border-border-light">
                 {clientTypes[activeTab].offerings.map((offering, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="bg-border-light rounded-xl p-4"
+                    className="py-6 border-b border-border-light grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8"
                   >
-                    <h4 className="font-semibold text-text-primary mb-1">{offering.title}</h4>
-                    <p className="text-sm text-text-muted">{offering.desc}</p>
+                    <h4 className="text-xl font-semibold text-text-primary">{offering.title}</h4>
+                    <p className="md:col-span-2 text-text-muted">{offering.desc}</p>
                   </motion.div>
                 ))}
               </div>
