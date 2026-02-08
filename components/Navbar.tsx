@@ -257,27 +257,7 @@ export default function Navbar() {
                   </span>
                 </motion.a>
               ))}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navLinks.length * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, '#contact')}
-                  className="group inline-flex items-center gap-3 mt-4 pl-6 pr-2 py-2 text-lg font-medium text-text-primary border border-border-light rounded-full transition-all duration-300 hover:bg-bg-dark hover:text-text-light hover:border-bg-dark"
-                >
-                  Let&apos;s chat
-                  <span className="flex items-center justify-center w-10 h-10 bg-accent rounded-full">
-                    <img
-                      src="/supomelo-website/star6.png"
-                      alt=""
-                      className="w-4 h-4 transition-transform duration-500 ease-out group-hover:rotate-180"
-                    />
-                  </span>
-                </a>
-              </motion.div>
-            </div>
+              </div>
           </motion.div>
         )}
       </AnimatePresence>
