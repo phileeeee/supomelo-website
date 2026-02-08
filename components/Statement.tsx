@@ -16,10 +16,11 @@ const clientTypes = [
     subtitle: 'Raised $50m+',
     description: 'You need a senior product designer in your triad to accelerate your roadmap.',
     offerings: [
-      { title: 'Embedded rituals', desc: 'We join your standups, design critiques, and team ceremonies.' },
-      { title: 'Design systems', desc: 'Scalable systems so your engineering team ships on brand.' },
-      { title: 'High-fidelity', desc: 'End-to-end annotated flows for easy engineer hand-off.' },
-      { title: 'User research', desc: 'Deep user interviews and testing to inform product direction.' },
+      { title: 'Embedded rituals', desc: 'We integrate into your product team\'s existing rituals—standups, design critiques, workshops, and test sessions.' },
+      { title: 'Wireframes', desc: 'We synthesize your briefs, user docs, and competitor analysis to explore product direction options.' },
+      { title: 'Design systems', desc: 'We build and maintain scalable design systems so your engineering team ships on brand.' },
+      { title: 'High-fidelity', desc: 'We bring wireframes to life with consistent components and end-to-end annotated flows for easy hand-off.' },
+      { title: 'User research', desc: 'Deep user interviews and usability testing to inform and validate product decisions.' },
     ],
   },
   {
@@ -28,10 +29,13 @@ const clientTypes = [
     subtitle: 'Raised $2-20m',
     description: 'You need product managers & product designers to supercharge iterating as quickly as possible to get to product market fit.',
     offerings: [
-      { title: 'Mind meld', desc: 'Structured onboarding to understand your product, industry, and users.' },
-      { title: 'Weekly jam', desc: 'Weekly sessions to go through design feedback and brief new projects.' },
-      { title: 'Brainstorming', desc: 'Regular Slack huddles and ad-hoc calls to get the context we need.' },
-      { title: 'Rapid prototypes', desc: 'Validate product decisions with customers before building.' },
+      { title: 'Deep-dive', desc: 'Structured onboarding to understand your product, industry, and users—giving us the context to deliver value fast.' },
+      { title: 'Weekly jam', desc: 'Weekly sessions to review designs, gather feedback, and brief new projects.' },
+      { title: 'Brainstorming', desc: 'The messy middle often needs more than one touchpoint. We jump on Slack huddles and ad-hoc calls throughout the week.' },
+      { title: 'Wireframes', desc: 'We piece together insights from user interviews, competitor analysis, and brainstorms to explore product direction.' },
+      { title: 'Design systems', desc: 'A lightweight component library to keep designs consistent and engineering builds efficient.' },
+      { title: 'High-fidelity', desc: 'Polished designs using consistent components, with annotated flows for smooth engineer hand-off.' },
+      { title: 'Prototypes', desc: 'Interactive lo-fi or hi-fi designs so you can validate product decisions with customers before building.' },
     ],
   },
 ];
@@ -199,60 +203,75 @@ export default function Statement() {
           </motion.p>
 
           {/* Content Card */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="bg-bg-warm rounded-2xl overflow-hidden p-6 md:p-10"
-            >
-              {/* Header with Title and Toggle */}
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
-                <div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-text-primary">{clientTypes[activeTab].title}</h3>
-                  <p className="text-text-muted mt-1">{clientTypes[activeTab].subtitle}</p>
-                </div>
-
-                {/* Toggle Switch */}
-                <div className="inline-flex bg-border-light rounded-full p-1 shrink-0">
-                  {clientTypes.map((client, index) => (
-                    <button
-                      key={client.id}
-                      onClick={() => setActiveTab(index)}
-                      className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 cursor-pointer ${
-                        activeTab === index
-                          ? 'bg-bg-dark text-text-light'
-                          : 'text-text-muted hover:text-text-primary'
-                      }`}
-                    >
-                      {client.title}
-                    </button>
-                  ))}
-                </div>
+          <div className="bg-bg-warm rounded-2xl overflow-hidden p-6 md:p-10">
+            {/* Header with Title and Toggle */}
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
+              <div>
+                <motion.h3
+                  key={`title-${activeTab}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-3xl md:text-4xl font-bold text-text-primary"
+                >
+                  {clientTypes[activeTab].title}
+                </motion.h3>
+                <motion.p
+                  key={`subtitle-${activeTab}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.05 }}
+                  className="text-text-muted mt-1"
+                >
+                  {clientTypes[activeTab].subtitle}
+                </motion.p>
               </div>
 
-              {/* Description */}
-              <p className="text-text-primary text-lg mb-10 max-w-2xl">{clientTypes[activeTab].description}</p>
-
-              {/* Offerings List */}
-              <div className="border-t border-border-light">
-                {clientTypes[activeTab].offerings.map((offering, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="py-6 border-b border-border-light grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8"
+              {/* Toggle Switch */}
+              <div className="inline-flex bg-border-light rounded-full p-1 shrink-0">
+                {clientTypes.map((client, index) => (
+                  <button
+                    key={client.id}
+                    onClick={() => setActiveTab(index)}
+                    className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 cursor-pointer ${
+                      activeTab === index
+                        ? 'bg-bg-dark text-text-light'
+                        : 'text-text-muted hover:text-text-primary'
+                    }`}
                   >
-                    <h4 className="text-xl font-semibold text-text-primary">{offering.title}</h4>
-                    <p className="md:col-span-2 text-text-muted">{offering.desc}</p>
-                  </motion.div>
+                    {client.title}
+                  </button>
                 ))}
               </div>
-            </motion.div>
-          </AnimatePresence>
+            </div>
+
+            {/* Description */}
+            <motion.p
+              key={`desc-${activeTab}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="text-text-primary text-lg mb-10 max-w-2xl"
+            >
+              {clientTypes[activeTab].description}
+            </motion.p>
+
+            {/* Offerings List */}
+            <div className="border-t border-border-light">
+              {clientTypes[activeTab].offerings.map((offering, index) => (
+                <motion.div
+                  key={`${activeTab}-${index}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.15 + index * 0.05 }}
+                  className="py-6 border-b border-border-light grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8"
+                >
+                  <h4 className="text-xl font-semibold text-text-primary">{offering.title}</h4>
+                  <p className="md:col-span-2 text-text-muted">{offering.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
