@@ -34,7 +34,7 @@ export default function Hero() {
       <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12">
         {/* Headline */}
         <div className="mb-8">
-          <h1 className="text-[40px] md:text-[72px] lg:text-[90px] font-bold leading-[1.1] text-text-primary">
+          <h1 className="text-[40px] md:text-[72px] lg:text-[90px] font-medium italic leading-[1.1] text-text-primary" style={{ fontFamily: 'var(--font-cormorant)' }}>
             <span className="block">
               {line1Words.map((word, i) => (
                 <motion.span
