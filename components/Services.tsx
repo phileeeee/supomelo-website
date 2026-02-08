@@ -76,6 +76,19 @@ export default function Services() {
           ))}
         </div>
       </div>
+
+      {/* Tagline */}
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12 pt-20 pb-8">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-text-light"
+        >
+          Design that bears fruit.
+        </motion.h2>
+      </div>
     </section>
   );
 }
