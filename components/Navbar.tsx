@@ -156,7 +156,7 @@ export default function Navbar() {
                 Let&apos;s chat
                 <span className="flex items-center justify-center w-7 h-7 bg-accent rounded-full">
                   <img
-                    src="/supomelo-website/star6.png"
+                    src="/supomelo-website/s-logo.png"
                     alt=""
                     className="w-3 h-3 transition-transform duration-500 ease-out group-hover:rotate-180"
                   />
