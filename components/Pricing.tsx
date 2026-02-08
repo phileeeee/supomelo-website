@@ -6,24 +6,24 @@ import ChatButton from './ui/ChatButton';
 
 const deliverables = [
   {
-    title: 'Embedded collaboration',
-    description: 'We join your standups, Slack channels, and design critiques. Not an outside agency—part of your team.',
+    title: 'Async-first',
+    description: 'Work across timezones. Updates, feedback, and deliverables flow without waiting for meetings.',
   },
   {
-    title: 'Wireframes & research',
-    description: 'We triangulate from your brief, user interviews, and competitor analysis to provide direction.',
+    title: 'Unlimited revisions',
+    description: 'Iterate until it\'s right. No nickel-and-diming for tweaks or changes.',
   },
   {
-    title: 'Design systems',
-    description: 'We create and manage a scalable design system, making it easy for your engineering team to ship on brand.',
+    title: 'Figma files included',
+    description: 'Full ownership of all design files. No extra fees, no strings attached.',
   },
   {
-    title: 'High-fidelity designs',
-    description: 'We bring designs to life with consistent components and end-to-end annotated flows for easy handoff.',
+    title: 'Month-to-month',
+    description: 'No long-term contracts. Stay because it works, not because you\'re locked in.',
   },
   {
-    title: 'Prototypes',
-    description: 'We build interactive prototypes so you can validate product decisions with customers.',
+    title: 'Cancel anytime',
+    description: 'Pause or stop whenever you need. We\'ll pick up right where we left off.',
   },
 ];
 
