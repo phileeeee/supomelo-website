@@ -15,7 +15,7 @@ export default function ChatButton({ href, onClick, children = 'Book a spot' }: 
     <MotionComponent
       href={href}
       onClick={onClick}
-      className="group relative inline-flex items-center gap-3 bg-transparent border border-border-light rounded-full px-2 py-2 pl-6 cursor-pointer overflow-hidden transition-colors duration-300 hover:bg-bg-dark hover:border-bg-dark"
+      className="group relative inline-flex items-center gap-3 bg-white border border-border-light rounded-full px-2 py-2 pl-6 cursor-pointer overflow-hidden transition-colors duration-300 hover:bg-bg-dark hover:border-bg-dark"
       whileTap={{ scale: 0.98 }}
     >
       {/* Text */}
