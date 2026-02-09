@@ -1,20 +1,35 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import SectionLabel from './ui/SectionLabel';
 
-// Dot Grid Component
+// Dot Grid Component with mouse interaction
 function DotGrid() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
+  const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setMousePos({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
+      }
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('mousemove', handleMouseMove);
+      return () => container.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, []);
 
   // Create a grid of dots
-  const rows = 8;
-  const cols = 12;
+  const rows = 10;
+  const cols = 16;
   const dots = [];
 
   for (let row = 0; row < rows; row++) {
@@ -26,20 +41,33 @@ function DotGrid() {
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 overflow-hidden pointer-events-none"
+      className="absolute inset-0 overflow-hidden"
+      style={{ pointerEvents: 'auto' }}
     >
-      <div className="absolute inset-0 grid gap-8 p-8" style={{
-        gridTemplateColumns: `repeat(${cols}, 1fr)`,
-        gridTemplateRows: `repeat(${rows}, 1fr)`,
-      }}>
-        {dots.map((dot) => (
-          <DotItem
-            key={dot.id}
-            row={dot.row}
-            col={dot.col}
-            scrollProgress={scrollYProgress}
-          />
-        ))}
+      {/* Gradient mask to fade out dots on the left (form area) */}
+      <div
+        className="absolute inset-0"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent 0%, transparent 40%, black 70%, black 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, transparent 40%, black 70%, black 100%)',
+        }}
+      >
+        <div className="absolute inset-0 grid gap-6 p-6" style={{
+          gridTemplateColumns: `repeat(${cols}, 1fr)`,
+          gridTemplateRows: `repeat(${rows}, 1fr)`,
+        }}>
+          {dots.map((dot) => (
+            <DotItem
+              key={dot.id}
+              row={dot.row}
+              col={dot.col}
+              totalCols={cols}
+              totalRows={rows}
+              mousePos={mousePos}
+              containerRef={containerRef}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -48,29 +76,46 @@ function DotGrid() {
 function DotItem({
   row,
   col,
-  scrollProgress,
+  totalCols,
+  totalRows,
+  mousePos,
+  containerRef,
 }: {
   row: number;
   col: number;
-  scrollProgress: ReturnType<typeof useScroll>['scrollYProgress'];
+  totalCols: number;
+  totalRows: number;
+  mousePos: { x: number; y: number };
+  containerRef: React.RefObject<HTMLDivElement | null>;
 }) {
-  // Create wave-like animation based on position
-  const delay = (row + col) * 0.05;
-  const scale = useTransform(
-    scrollProgress,
-    [0, 0.5, 1],
-    [0.5 + Math.sin(delay) * 0.3, 1, 0.5 + Math.cos(delay) * 0.3]
+  // Calculate dot position
+  const getDotPosition = () => {
+    if (!containerRef.current) return { x: 0, y: 0 };
+    const rect = containerRef.current.getBoundingClientRect();
+    const cellWidth = rect.width / totalCols;
+    const cellHeight = rect.height / totalRows;
+    return {
+      x: col * cellWidth + cellWidth / 2,
+      y: row * cellHeight + cellHeight / 2,
+    };
+  };
+
+  const dotPos = getDotPosition();
+  const distance = Math.sqrt(
+    Math.pow(mousePos.x - dotPos.x, 2) + Math.pow(mousePos.y - dotPos.y, 2)
   );
-  const opacity = useTransform(
-    scrollProgress,
-    [0, 0.3, 0.7, 1],
-    [0.03, 0.08, 0.08, 0.03]
-  );
+
+  // Scale and opacity based on distance from cursor
+  const maxDistance = 150;
+  const proximityFactor = Math.max(0, 1 - distance / maxDistance);
+  const scale = 1 + proximityFactor * 1.5;
+  const opacity = 0.15 + proximityFactor * 0.6;
 
   return (
     <motion.div
       className="flex items-center justify-center"
-      style={{ scale, opacity }}
+      animate={{ scale, opacity }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       <div className="w-1.5 h-1.5 bg-accent rounded-full" />
     </motion.div>
