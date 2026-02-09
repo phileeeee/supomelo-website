@@ -77,58 +77,65 @@ export default function Statement() {
           </motion.span>
         </div>
 
-        {/* Comparison bars */}
+        {/* Comparison - Animated Pills */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="mb-20 space-y-6"
+          className="mb-20 space-y-8"
         >
           {/* With Supomelo */}
-          <div className="space-y-2">
+          <div className="space-y-4">
             <span className="text-sm font-medium text-text-muted block">WITH SUPOMELO</span>
-            <div className="flex gap-2">
-              <motion.div
-                initial={{ width: 0, opacity: 0 }}
-                whileInView={{ width: 'auto', opacity: 1 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-                className="bg-bg-dark text-text-light px-4 py-2 rounded text-sm font-medium flex-[2] md:flex-[3] whitespace-nowrap overflow-hidden"
+            <div className="flex items-center gap-3 flex-wrap">
+              {['Design', 'Test', 'Launch'].map((stage, index) => (
+                <motion.span
+                  key={stage}
+                  initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="inline-flex items-center gap-2"
+                >
+                  <span className="bg-bg-dark text-text-light px-5 py-2.5 rounded-full text-sm font-medium">
+                    {stage}
+                  </span>
+                  {index < 2 && (
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.4 + index * 0.15 }}
+                      className="text-text-muted"
+                    >
+                      →
+                    </motion.span>
+                  )}
+                </motion.span>
+              ))}
+              <motion.span
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.8 }}
+                className="text-accent text-lg"
               >
-                DESIGN
-              </motion.div>
-              <motion.div
-                initial={{ width: 0, opacity: 0 }}
-                whileInView={{ width: 'auto', opacity: 1 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                className="bg-bg-dark text-text-light px-4 py-2 rounded text-sm font-medium flex-[1.5] md:flex-[2] whitespace-nowrap overflow-hidden"
-              >
-                TEST
-              </motion.div>
-              <motion.div
-                initial={{ width: 0, opacity: 0 }}
-                whileInView={{ width: 'auto', opacity: 1 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.6, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-                className="bg-bg-dark text-text-light px-4 py-2 rounded text-sm font-medium flex-[1.3] md:flex-1 whitespace-nowrap overflow-hidden"
-              >
-                LAUNCH
-              </motion.div>
+                ✓
+              </motion.span>
             </div>
           </div>
 
           {/* In-house */}
-          <div className="space-y-2">
+          <div className="space-y-4">
             <span className="text-sm font-medium text-text-muted block">IN-HOUSE</span>
-            <motion.div
-              initial={{ width: 0, opacity: 0 }}
-              whileInView={{ width: '100%', opacity: 1 }}
-              viewport={{ once: false }}
-              transition={{ duration: 3, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="border-2 border-border-light text-text-muted px-4 py-2 rounded text-sm font-medium overflow-hidden whitespace-nowrap flex items-center gap-2"
-            >
-              <span className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
+              <motion.span
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                className="inline-flex items-center gap-2 border border-border-light text-text-muted px-5 py-2.5 rounded-full text-sm font-medium"
+              >
                 <svg
                   className="w-4 h-4 animate-spin"
                   viewBox="0 0 24 24"
@@ -149,9 +156,8 @@ export default function Statement() {
                   />
                 </svg>
                 Hiring in progress...
-              </span>
-              <span className="ml-auto">Don&apos;t wait!</span>
-            </motion.div>
+              </motion.span>
+            </div>
           </div>
         </motion.div>
 
