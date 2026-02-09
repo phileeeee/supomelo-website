@@ -158,7 +158,7 @@ export default function Navbar() {
                   <img
                     src="/s-logo-segment.png"
                     alt=""
-                    className="w-4 h-4 transition-transform duration-500 ease-out group-hover:rotate-[360deg]"
+                    className="w-5 h-5 transition-transform duration-500 ease-out group-hover:rotate-[360deg]"
                   />
                 </span>
               </a>
