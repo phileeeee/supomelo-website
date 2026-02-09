@@ -1,8 +1,81 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import SectionLabel from './ui/SectionLabel';
+
+// Dot Grid Component
+function DotGrid() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start'],
+  });
+
+  // Create a grid of dots
+  const rows = 8;
+  const cols = 12;
+  const dots = [];
+
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      dots.push({ row, col, id: `${row}-${col}` });
+    }
+  }
+
+  return (
+    <div
+      ref={containerRef}
+      className="absolute inset-0 overflow-hidden pointer-events-none"
+    >
+      <div className="absolute inset-0 grid gap-8 p-8" style={{
+        gridTemplateColumns: `repeat(${cols}, 1fr)`,
+        gridTemplateRows: `repeat(${rows}, 1fr)`,
+      }}>
+        {dots.map((dot) => (
+          <DotItem
+            key={dot.id}
+            row={dot.row}
+            col={dot.col}
+            scrollProgress={scrollYProgress}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DotItem({
+  row,
+  col,
+  scrollProgress,
+}: {
+  row: number;
+  col: number;
+  scrollProgress: ReturnType<typeof useScroll>['scrollYProgress'];
+}) {
+  // Create wave-like animation based on position
+  const delay = (row + col) * 0.05;
+  const scale = useTransform(
+    scrollProgress,
+    [0, 0.5, 1],
+    [0.5 + Math.sin(delay) * 0.3, 1, 0.5 + Math.cos(delay) * 0.3]
+  );
+  const opacity = useTransform(
+    scrollProgress,
+    [0, 0.3, 0.7, 1],
+    [0.03, 0.08, 0.08, 0.03]
+  );
+
+  return (
+    <motion.div
+      className="flex items-center justify-center"
+      style={{ scale, opacity }}
+    >
+      <div className="w-1.5 h-1.5 bg-accent rounded-full" />
+    </motion.div>
+  );
+}
 
 const projectTypes = ['Web app', 'Mobile app', 'Website', 'Brand'];
 
@@ -68,8 +141,11 @@ Looking forward to hearing from you!`;
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-32 bg-bg-dark">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+    <section id="contact" className="relative py-20 lg:py-32 bg-bg-dark overflow-hidden">
+      {/* Animated Dot Grid Overlay */}
+      <DotGrid />
+
+      <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12">
         <motion.div
           initial="hidden"
           whileInView="visible"
