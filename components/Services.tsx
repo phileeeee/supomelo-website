@@ -64,9 +64,9 @@ export default function Services() {
               className="group py-6 border-b border-border-dark"
             >
               <div className="flex items-start gap-4">
-                <span className="text-accent font-mono text-sm mt-1">0{index + 1}</span>
+                <span className="text-accent-light font-mono text-sm mt-1">0{index + 1}</span>
                 <div>
-                  <h3 className="text-xl font-semibold text-text-light mb-1 group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-semibold text-text-light mb-1 group-hover:text-accent-light transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-text-muted text-sm">{service.description}</p>
