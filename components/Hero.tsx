@@ -23,23 +23,11 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen bg-bg-warm pt-32 pb-20 overflow-hidden">
-      {/* Gradient orbs */}
-      {/* Main lime-green orb - center right */}
-      <div className="absolute top-1/4 right-0 w-[900px] h-[900px] translate-x-1/4">
-        <div className="absolute inset-0 bg-[#D4E890]/75 rounded-full blur-[120px]" />
-      </div>
-      {/* Vibrant lime orb - upper area */}
-      <div className="absolute -top-20 right-1/4 w-[700px] h-[700px]">
-        <div className="absolute inset-0 bg-[#C8E858]/55 rounded-full blur-[100px]" />
-      </div>
-      {/* Soft mint orb - top left */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] -translate-y-1/4">
-        <div className="absolute inset-0 bg-[#E0F0D0]/65 rounded-full blur-[110px]" />
-      </div>
-      {/* Bottom pale lime orb */}
-      <div className="absolute bottom-0 left-1/3 w-[700px] h-[700px] translate-y-1/2">
-        <div className="absolute inset-0 bg-[#E5F5C0]/60 rounded-full blur-[120px]" />
-      </div>
+      {/* Flare background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/flare-background.jpg)' }}
+      />
 
       <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12">
         {/* Headline */}
