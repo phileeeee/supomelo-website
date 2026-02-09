@@ -156,9 +156,9 @@ export default function Navbar() {
                 Let&apos;s chat
                 <span className="flex items-center justify-center w-7 h-7 bg-accent rounded-full">
                   <img
-                    src="/s-logo.png"
+                    src="/s-logo-segment.png"
                     alt=""
-                    className="w-5 h-5 transition-transform duration-500 ease-out group-hover:rotate-[360deg]"
+                    className="w-4 h-4 transition-transform duration-500 ease-out group-hover:rotate-[360deg]"
                   />
                 </span>
               </a>
