@@ -154,11 +154,11 @@ export default function Navbar() {
                 className="group ml-2 flex items-center gap-2 pl-4 pr-2 py-1.5 text-sm font-medium text-text-primary border border-border-light rounded-full transition-all duration-300 hover:bg-bg-dark hover:text-text-light hover:border-bg-dark cursor-pointer whitespace-nowrap"
               >
                 Let&apos;s chat
-                <span className="flex items-center justify-center w-7 h-7 bg-accent rounded-full">
+                <span className="flex items-center justify-center w-7 h-7 rounded-full overflow-hidden">
                   <img
                     src="/s-logo-segment-green.png"
                     alt=""
-                    className="w-5 h-5 transition-transform duration-500 ease-out group-hover:rotate-[360deg]"
+                    className="w-7 h-7 transition-transform duration-500 ease-out group-hover:rotate-[360deg]"
                   />
                 </span>
               </a>
