@@ -25,10 +25,10 @@ export default function Hero() {
     <section className="relative min-h-screen bg-bg-warm pt-32 pb-20 overflow-hidden">
       {/* Gradient orbs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] translate-x-1/4 -translate-y-1/4">
-        <div className="absolute inset-0 bg-[#D4A090]/40 rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-[#E87850]/35 rounded-full blur-[120px]" />
       </div>
       <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] -translate-x-1/2">
-        <div className="absolute inset-0 bg-[#D4A090]/30 rounded-full blur-[100px]" />
+        <div className="absolute inset-0 bg-[#F5C8A8]/40 rounded-full blur-[100px]" />
       </div>
 
       <div className="relative max-w-[1200px] mx-auto px-6 lg:px-12">
