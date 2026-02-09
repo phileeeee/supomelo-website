@@ -20,11 +20,8 @@ function DotGrid() {
       }
     };
 
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      return () => container.removeEventListener('mousemove', handleMouseMove);
-    }
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   // Create a grid of dots
@@ -41,8 +38,7 @@ function DotGrid() {
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 overflow-hidden"
-      style={{ pointerEvents: 'auto' }}
+      className="absolute inset-0 overflow-hidden hidden lg:block"
     >
       {/* Gradient mask to fade out dots on the left (form area) */}
       <div
@@ -112,13 +108,12 @@ function DotItem({
   const opacity = 0.15 + proximityFactor * 0.6;
 
   return (
-    <motion.div
-      className="flex items-center justify-center"
-      animate={{ scale, opacity }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+    <div
+      className="flex items-center justify-center transition-all duration-100 ease-out"
+      style={{ transform: `scale(${scale})`, opacity }}
     >
       <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-    </motion.div>
+    </div>
   );
 }
 
