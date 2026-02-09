@@ -35,7 +35,7 @@ export default function Founder() {
             className="flex justify-center lg:justify-start"
           >
             <img
-              src="/supomelo-website/profile.jpeg"
+              src="/profile.jpeg"
               alt="Founder"
               className="w-64 h-64 object-cover rounded-full"
             />

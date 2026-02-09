@@ -186,7 +186,7 @@ Looking forward to hearing from you!`;
                             }}
                             className="flex items-center"
                           >
-                            <img src="/supomelo-website/plus.png" alt="" className="w-4 h-4" />
+                            <img src="/plus.png" alt="" className="w-4 h-4" />
                           </motion.span>
                         )}
                       </AnimatePresence>
