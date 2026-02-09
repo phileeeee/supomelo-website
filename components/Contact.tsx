@@ -220,7 +220,7 @@ Looking forward to hearing from you!`;
             <div className="mt-10">
               <motion.button
                 type="submit"
-                className="group inline-flex items-center gap-3 bg-accent-light border border-accent-light rounded-full px-2 py-2 pl-6 cursor-pointer overflow-hidden transition-colors duration-300 hover:bg-white hover:border-white"
+                className="group inline-flex items-center gap-3 bg-accent border border-accent rounded-full px-2 py-2 pl-6 cursor-pointer overflow-hidden transition-colors duration-300 hover:bg-white hover:border-white"
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="text-base font-medium text-bg-dark transition-colors duration-300">
