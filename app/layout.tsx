@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   description: "From seed to scale. Design that helps startups flourish. Supomelo is a product design studio for startups and scale-ups.",
   keywords: ["product design", "startup design", "UX design", "UI design", "design studio"],
   authors: [{ name: "Supomelo Studio" }],
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Supomelo Studio — Product Design for Startups",
     description: "From seed to scale. Design that helps startups flourish.",
