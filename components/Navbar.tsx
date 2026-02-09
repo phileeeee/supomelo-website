@@ -111,14 +111,14 @@ export default function Navbar() {
             {/* Logo */}
             <a
               href="#"
-              className="relative text-xl font-bold text-text-primary lowercase whitespace-nowrap"
+              className="flex items-center gap-2 text-xl font-bold text-text-primary lowercase whitespace-nowrap"
             >
-              supomelo
               <img
-                src="/leaf.png"
+                src="/s-logo-dark.png"
                 alt=""
-                className="absolute -top-1.5 -right-3 w-5 h-5 object-contain pointer-events-none"
+                className="w-6 h-6 object-contain"
               />
+              supomelo
             </a>
 
             {/* Nav Links */}
@@ -190,13 +190,13 @@ export default function Navbar() {
             />
 
             <div className="relative flex items-center justify-between px-6 py-4">
-              <a href="#" className="relative text-xl font-bold text-text-primary lowercase">
-                supomelo
+              <a href="#" className="flex items-center gap-2 text-xl font-bold text-text-primary lowercase">
                 <img
-                  src="/leaf.png"
+                  src="/s-logo-dark.png"
                   alt=""
-                  className="absolute -top-1.5 -right-3 w-5 h-5 object-contain pointer-events-none"
+                  className="w-6 h-6 object-contain"
                 />
+                supomelo
               </a>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
