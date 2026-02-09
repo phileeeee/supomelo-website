@@ -82,11 +82,12 @@ export default function Statement() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="mb-20"
+          className="mb-20 space-y-6"
         >
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-sm font-medium text-text-muted w-32 shrink-0">WITH SUPOMELO</span>
-            <div className="flex gap-2 flex-1 overflow-hidden">
+          {/* With Supomelo */}
+          <div className="space-y-2">
+            <span className="text-sm font-medium text-text-muted block">WITH SUPOMELO</span>
+            <div className="flex gap-2">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 whileInView={{ width: 'auto', opacity: 1 }}
@@ -116,14 +117,16 @@ export default function Statement() {
               </motion.div>
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-sm font-medium text-text-muted w-32 shrink-0">IN-HOUSE</span>
+
+          {/* In-house */}
+          <div className="space-y-2">
+            <span className="text-sm font-medium text-text-muted block">IN-HOUSE</span>
             <motion.div
               initial={{ width: 0, opacity: 0 }}
               whileInView={{ width: '100%', opacity: 1 }}
               viewport={{ once: false }}
               transition={{ duration: 3, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="flex-1 border-2 border-border-light text-text-muted px-4 py-2 rounded text-sm font-medium overflow-hidden whitespace-nowrap flex items-center gap-2"
+              className="border-2 border-border-light text-text-muted px-4 py-2 rounded text-sm font-medium overflow-hidden whitespace-nowrap flex items-center gap-2"
             >
               <span className="flex items-center gap-2">
                 <svg
@@ -147,7 +150,7 @@ export default function Statement() {
                 </svg>
                 Hiring in progress...
               </span>
-              <span className="ml-auto">Don't wait!</span>
+              <span className="ml-auto">Don&apos;t wait!</span>
             </motion.div>
           </div>
         </motion.div>
