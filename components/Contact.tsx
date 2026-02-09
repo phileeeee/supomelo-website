@@ -100,7 +100,7 @@ Looking forward to hearing from you!`;
               Thanks for reaching out!
             </h3>
             <p className="text-text-muted">
-              I&apos;ll get back to you within 24 hours.
+              We&apos;ll get back to you within 24 hours.
             </p>
           </motion.div>
         ) : (

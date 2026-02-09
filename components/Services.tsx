@@ -50,7 +50,7 @@ export default function Services() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-3xl md:text-4xl font-bold text-text-light mt-6 mb-16"
         >
-          What I can help with
+          What we can help with
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">

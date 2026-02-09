@@ -50,7 +50,7 @@ export default function About() {
           variants={fadeInUp}
           className="text-lg text-text-muted max-w-2xl mb-12"
         >
-          I drive design projects from wireframe to full release alongside your
+          We drive design projects from wireframe to full release alongside your
           engineers. Embedded in your team, not outside it.
         </motion.p>
 
@@ -63,8 +63,8 @@ export default function About() {
           className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
         >
           {stats.map((stat, index) => (
-            <div key={index} className="text-center md:text-left">
-              <div className="flex items-center gap-3 justify-center md:justify-start mb-2">
+            <div key={index} className="text-left">
+              <div className="flex items-center gap-3 justify-start mb-2">
                 <svg className="w-5 h-5 text-text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
