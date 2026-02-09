@@ -93,7 +93,7 @@ export default function Statement() {
                 whileInView={{ width: 'auto', opacity: 1 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-                className="bg-bg-dark text-text-light px-4 py-2 rounded text-sm font-medium flex-[3] whitespace-nowrap overflow-hidden"
+                className="bg-bg-dark text-text-light px-4 py-2 rounded text-sm font-medium flex-[2] md:flex-[3] whitespace-nowrap overflow-hidden"
               >
                 DESIGN
               </motion.div>
@@ -102,7 +102,7 @@ export default function Statement() {
                 whileInView={{ width: 'auto', opacity: 1 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                className="bg-bg-dark text-text-light px-4 py-2 rounded text-sm font-medium flex-[2] whitespace-nowrap overflow-hidden"
+                className="bg-bg-dark text-text-light px-4 py-2 rounded text-sm font-medium flex-[1.5] md:flex-[2] whitespace-nowrap overflow-hidden"
               >
                 TEST
               </motion.div>
@@ -111,7 +111,7 @@ export default function Statement() {
                 whileInView={{ width: 'auto', opacity: 1 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.6, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-                className="bg-bg-dark text-text-light px-5 py-2 rounded text-sm font-medium flex-1 whitespace-nowrap overflow-hidden"
+                className="bg-bg-dark text-text-light px-4 py-2 rounded text-sm font-medium flex-[1.3] md:flex-1 whitespace-nowrap overflow-hidden"
               >
                 LAUNCH
               </motion.div>
