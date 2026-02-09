@@ -23,8 +23,8 @@ export default function ChatButton({ href, onClick, children = 'Book a spot' }: 
         {children}
       </span>
 
-      {/* Icon container with green bg */}
-      <span className="relative flex items-center justify-center w-10 h-10 bg-accent rounded-full overflow-hidden">
+      {/* Icon container with accent bg */}
+      <span className="relative flex items-center justify-center w-10 h-10 bg-accent text-white rounded-full overflow-hidden">
         <svg
           className="w-5 h-5 transition-transform duration-300 ease-out group-hover:translate-x-10"
           fill="none"
