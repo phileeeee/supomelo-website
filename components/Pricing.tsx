@@ -50,7 +50,7 @@ export default function Pricing() {
           <SectionLabel>Pricing</SectionLabel>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mt-6 mb-6 leading-tight">
             No guesswork on pricing,<br />
-            we charge $18k/mo.
+            we charge $22k/mo.
           </h2>
         </motion.div>
 
