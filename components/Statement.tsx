@@ -77,59 +77,89 @@ export default function Statement() {
           </motion.span>
         </div>
 
-        {/* Comparison - Simple Text */}
+        {/* Comparison - Connected Dots Timeline */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="mb-20 space-y-6"
+          className="mb-20 space-y-10"
         >
           {/* With Supomelo */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex items-center gap-4 flex-wrap"
-          >
-            <span className="text-sm font-medium text-text-muted uppercase tracking-wide">With Supomelo</span>
-            <span className="text-text-primary font-medium">
-              Design <span className="text-text-muted mx-2">→</span> Test <span className="text-text-muted mx-2">→</span> Launch <span className="text-accent ml-2">✓</span>
-            </span>
-          </motion.div>
+          <div className="space-y-4">
+            <span className="text-sm font-medium text-text-muted uppercase tracking-wide block">With Supomelo</span>
+            <div className="flex items-center gap-0">
+              {['Design', 'Test', 'Launch'].map((stage, index) => (
+                <div key={stage} className="flex items-center">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.2 + index * 0.2 }}
+                    className="flex flex-col items-center"
+                  >
+                    <div className="w-3 h-3 bg-bg-dark rounded-full" />
+                    <span className="text-sm font-medium text-text-primary mt-2">{stage}</span>
+                  </motion.div>
+                  {index < 2 && (
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.3 + index * 0.2 }}
+                      className="w-16 md:w-24 h-0.5 bg-bg-dark origin-left -mt-6"
+                    />
+                  )}
+                </div>
+              ))}
+              <motion.span
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.9 }}
+                className="text-accent text-xl ml-4 -mt-6"
+              >
+                ✓
+              </motion.span>
+            </div>
+          </div>
 
           {/* In-house */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center gap-4 flex-wrap"
-          >
-            <span className="text-sm font-medium text-text-muted uppercase tracking-wide">In-house</span>
-            <span className="text-text-muted font-medium flex items-center gap-2">
-              <svg
-                className="w-4 h-4 animate-spin"
-                viewBox="0 0 24 24"
-                fill="none"
+          <div className="space-y-4">
+            <span className="text-sm font-medium text-text-muted uppercase tracking-wide block">In-house</span>
+            <div className="flex items-center gap-0">
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.5 }}
+                className="flex flex-col items-center"
               >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                />
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                />
-              </svg>
-              Still hiring...
-            </span>
-          </motion.div>
+                <div className="w-3 h-3 border-2 border-border-light rounded-full" />
+                <span className="text-sm font-medium text-text-muted mt-2 flex items-center gap-2">
+                  <svg
+                    className="w-3 h-3 animate-spin"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  Hiring...
+                </span>
+              </motion.div>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 2, delay: 0.6 }}
+                className="w-16 md:w-24 h-0.5 bg-border-light origin-left -mt-6"
+              />
+              <div className="flex flex-col items-center opacity-30">
+                <div className="w-3 h-3 border-2 border-border-light rounded-full border-dashed" />
+                <span className="text-sm font-medium text-text-muted mt-2">???</span>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Journey Timeline */}
