@@ -272,6 +272,15 @@ export default function Statement() {
                 </motion.div>
               ))}
             </div>
+
+            {/* Disclaimer note */}
+            <div className="mt-6 flex items-start gap-2 text-sm text-text-muted">
+              <svg className="w-4 h-4 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4M12 8h.01" />
+              </svg>
+              <span>What we deliver depends on your goals. Let&apos;s figure it out together.</span>
+            </div>
           </div>
         </div>
       </div>
