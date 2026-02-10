@@ -16,11 +16,11 @@ const clientTypes = [
     subtitle: 'Raised $50m+',
     description: 'A senior design partner embedded in your team to accelerate your roadmap.',
     offerings: [
-      { title: 'Embedded collaboration', desc: 'We join your standups, critiques, and syncs—as part of your team, not outside it.' },
-      { title: 'Wireframes & prototypes', desc: 'Whatever fidelity gets you answers fastest—from quick sketches to interactive prototypes.' },
+      { title: 'Embedded collaboration', desc: 'We join your standups, critiques, and syncs. Part of your team, not outside it.' },
+      { title: 'Wireframes & prototypes', desc: 'Whatever fidelity gets you answers fastest, from quick sketches to interactive prototypes.' },
       { title: 'UI design', desc: 'Production-ready screens your engineers can ship.' },
-      { title: 'Design systems', desc: 'Components and patterns that scale with your product—built as needed, not upfront.' },
-      { title: 'Research support', desc: 'We join sessions, synthesize findings, or run lightweight tests—whatever helps us learn.' },
+      { title: 'Design systems', desc: 'Components and patterns that scale with your product. Built as needed, not upfront.' },
+      { title: 'Research support', desc: 'We join sessions, synthesize findings, or run lightweight tests. Whatever helps us learn.' },
     ],
   },
   {
@@ -30,10 +30,10 @@ const clientTypes = [
     description: 'Design support to help you move fast and learn faster.',
     offerings: [
       { title: 'Weekly syncs', desc: 'Regular check-ins to review progress, gather feedback, and plan next steps.' },
-      { title: 'Rapid prototypes', desc: 'Testable concepts in days—validate assumptions before engineering commits.' },
+      { title: 'Rapid prototypes', desc: 'Testable concepts in days. Validate assumptions before engineering commits.' },
       { title: 'UI design', desc: 'Polished screens ready for development.' },
       { title: 'Lightweight systems', desc: 'Just enough structure to stay consistent without slowing you down.' },
-      { title: 'Research & testing', desc: 'Quick validation loops with real users—not month-long studies.' },
+      { title: 'Research & testing', desc: 'Quick validation loops with real users, not month-long studies.' },
     ],
   },
 ];
