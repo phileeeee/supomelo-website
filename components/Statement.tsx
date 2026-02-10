@@ -208,15 +208,27 @@ export default function Statement() {
             {/* Header with Title and Toggle */}
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
               <div>
-                <motion.h3
-                  key={`title-${activeTab}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-3xl md:text-4xl font-bold text-text-primary"
-                >
-                  {clientTypes[activeTab].title}
-                </motion.h3>
+                <div className="flex items-center gap-3">
+                  <motion.h3
+                    key={`title-${activeTab}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-3xl md:text-4xl font-bold text-text-primary"
+                  >
+                    {clientTypes[activeTab].title}
+                  </motion.h3>
+                  {/* Info icon with tooltip */}
+                  <div className="relative group">
+                    <button className="w-6 h-6 rounded-full border-2 border-text-muted/40 text-text-muted/60 flex items-center justify-center text-sm font-medium hover:border-text-muted hover:text-text-muted transition-colors cursor-help">
+                      i
+                    </button>
+                    <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-64 p-3 bg-bg-dark text-text-light text-sm rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+                      What we deliver also depends on your goals. Let&apos;s figure it out together.
+                      <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-bg-dark" />
+                    </div>
+                  </div>
+                </div>
                 <motion.p
                   key={`subtitle-${activeTab}`}
                   initial={{ opacity: 0 }}
@@ -272,11 +284,6 @@ export default function Statement() {
                 </motion.div>
               ))}
             </div>
-
-            {/* Disclaimer note */}
-            <p className="mt-6 text-sm text-text-muted">
-              Note that we also understand flexibility, so what we deliver depends on your goals. Let&apos;s figure it out together.
-            </p>
           </div>
         </div>
       </div>
