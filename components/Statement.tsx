@@ -223,9 +223,9 @@ export default function Statement() {
                     <button className="w-6 h-6 rounded-full border-2 border-text-muted/40 text-text-muted/60 flex items-center justify-center text-sm font-medium hover:border-text-muted hover:text-text-muted transition-colors cursor-help">
                       i
                     </button>
-                    <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-64 p-3 bg-bg-dark text-text-light text-sm rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+                    <div className="absolute left-0 sm:left-1/2 sm:-translate-x-1/2 top-full mt-2 w-64 p-3 bg-bg-dark text-text-light text-sm rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+                      <div className="absolute left-3 sm:left-1/2 sm:-translate-x-1/2 bottom-full w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-bg-dark" />
                       What we deliver also depends on your goals. Let&apos;s figure it out together.
-                      <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-bg-dark" />
                     </div>
                   </div>
                 </div>
