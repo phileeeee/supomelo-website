@@ -58,7 +58,7 @@ export default function Founder() {
             <p className="text-text-primary leading-relaxed mb-6">
               With over a decade of experience in product design, I&apos;ve helped
               startups and scale-ups build products that users love. My approach
-              combines deep user research with rapid iteration—shipping fast
+              combines deep user research with rapid iteration, shipping fast
               without sacrificing quality.
             </p>
 
